@@ -20,7 +20,7 @@ I'm transitioning from a "standard" development path to a DevOps and Cloud-focus
 - **⚙️ Automation:** Scripts and tools to automate repetitive tasks and streamline workflows.
 - **🔁 CI/CD:** End-to-end pipelines for continuous integration and continuous deployment.
 - **🐳 Containerization:** Docker and Kubernetes projects for scalable, portable applications.
-- **☁️ Cloud Infrastructure:** Infrastructure as Code (IaC) and cloud-native solutions using AWS, Azure, or GCP.
+- **☁️ Cloud Infrastructure:** Infrastructure as Code (IaC) and cloud-native solutions using AWS
 - **📈 Monitoring & Logging:** Implementations of observability best practices.
 - **🔒 Security:** Secure DevOps practices and cloud security fundamentals.
 - **📝 Documentation:** Clear, professional documentation for every project.
