@@ -4,8 +4,8 @@
 ## Objectif (ce que je deviens en 8 à 12 semaines)
 Devenir un DevOps Cloud junior capable de :
 - Dockeriser et déployer une application (web ou API) sur AWS avec Terraform (IaC).
-- Orchestrer l’app avec Kubernetes (EKS / local k3d/kind), créer pipeline CI/CD (GitHub Actions) pour build → test → deploy.
-- Mettre en place monitoring (Prometheus + Grafana), logs basiques, alerting et runbook simple.
+- Orchestrer l’app avec Kubernetes (EKS / local k3d/kind), créer une pipeline CI/CD (GitHub Actions) pour build → test → deploy.
+- Mettre en place un monitoring (Prometheus + Grafana), logs basiques, alerting et runbook simple.
 - Livrer un POC 3–5 jours pour une PME (pipeline + infra + monitoring) et pouvoir vendre ce POC en freelance.
 
 ## Overview
