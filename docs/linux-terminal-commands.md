@@ -52,6 +52,11 @@ Welcome to your curated list of **60 must-know Linux commands** for DevOps profe
 | vim     | Opens a file in the Vim text editor. | `vim file.txt` |
 | shred   | Overwrites a file to hide its contents, and optionally deletes it. | `shred file.txt` |
 
+> **Best use case:** Overwrite a file 100 times, add a final overwrite with zeros, remove the file after overwriting it, and show verbose progress on the screen:
+> ```sh
+> shred --verbose --zero --remove --iterations=100 path/to/file
+> ```
+
 ---
 
 ## System Information
@@ -61,7 +66,7 @@ Welcome to your curated list of **60 must-know Linux commands** for DevOps profe
 | uname   | Prints system information. | `uname -a` |
 | neofetch| Shows system information with an image. | `neofetch` |
 | whoami  | Displays the current user’s username. | `whoami` |
-| cal     | Displays a calendar. | `cal` |
+| cal     | Displays a calendar. XD (useless) | `cal` |
 | free    | Displays the amount of free and used memory in the system. | `free` |
 | df      | Reports file system disk space usage. | `df -h` |
 
