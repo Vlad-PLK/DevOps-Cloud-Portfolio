@@ -1,6 +1,6 @@
 # Essential Linux Terminal Commands for DevOps
 
-Welcome to your curated list of **60 must-know Linux commands** for DevOps professionals. Use this document to organize, learn, and reference key commands that streamline your workflow.
+Welcome to your curated list of **60 must-know Linux commands** for all Linux users and so DevOps professionals. Use this document to organize, learn, and reference key commands that streamline your workflow.
 
 ---
 
