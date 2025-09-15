@@ -38,6 +38,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 ## 4. Recommended .zshrc Settings
 
+This is my favorite setup oh-my-zsh, simple, clean and beautiful theme + some of the best plugins, check oh-my-zsh/plugins repo for more info 
+
+Shout out to "colored-man-pages" and "command-not-found" which are actually pretty usefull
+
 ```zsh
 ZSH_THEME="candy"
 plugins=(git docker kubectl terraform aws colored-man-pages command-not-found copypath copyfile cp genpass web-search node npm nvm)
@@ -52,9 +56,15 @@ source $ZSH/oh-my-zsh.sh
 # Modern CLI replacements
 alias cat="bat"
 alias grep="rg"
+
+# i've created my own helper_file where i store some linux basics and hints just in case i fell lost
 alias helpmepls="bat ~/.helper_file"
 alias thattop="htop"
+
+# use uname if you are boring and neofetch if you are a cool guy XD
 alias bname="neofetch"
+
+# this one is just for fun actually XD
 alias show_me_a_calendar="cal"
 
 # Docker shortcuts
