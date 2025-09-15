@@ -124,8 +124,11 @@ Welcome to your curated list of **60 must-know Linux commands** for all Linux us
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| adduser | Adds a new user to the system. | `sudo adduser newuser` |
-| useradd | Adds a new user to the system. | `sudo useradd newuser` |
+| adduser | Adds a new user to an existing group. | `sudo adduser newuser` |
+| useradd | Create and adds a new user to the system. | `sudo useradd newuser` |
+| usermod | Modify the USER account details. | `sudo usermod --options USER` |
+| groups | Display the groups where the USER is. | `groups USER` |
+
 | su      | Switches the current user to another user. | `su username` |
 | passwd  | Changes the password for a user. | `passwd username` |
 | chown   | Changes the owner of a file. | `chown user file.txt` |
