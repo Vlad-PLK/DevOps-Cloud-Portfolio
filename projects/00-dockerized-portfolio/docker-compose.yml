@@ -1,63 +1,78 @@
-version: '3.8'
+networks:
+  transcendance:
+    driver: bridge
 
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      target: production
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
     ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - REACT_APP_API_URL=http://localhost:5000
+      - 1080:80  # Forward HTTP traffic on port 80
+      - 1443:443
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - transcendance
+
+  frontend:
+    container_name: frontend
+    build: ./front-react
+    volumes:
+      - frontend:/app
     depends_on:
       - backend
     networks:
-      - portfolio-network
-    restart: unless-stopped
+      - transcendance
 
   backend:
-    build:
+    container_name: backend
+    volumes:
+      - backend:/app
+    build: 
       context: ./backend
-      dockerfile: Dockerfile
-      target: production
-    ports:
-      - "5000:5000"
-    environment:
-      - NODE_ENV=production
-      - DATABASE_URL=postgresql://portfolio:password@database:5432/portfolio_db
-      - JWT_SECRET=your-jwt-secret-here
+      args:
+        DOMAIN: ${DOMAIN}
+        OAUTH_UID: ${OAUTH_UID}
+        OAUTH_SECRET: ${OAUTH_SECRET}
+        OAUTH_CALLBACK: ${OAUTH_CALLBACK}
+        DBNAME: ${DBNAME}       
+        DBUSER: ${DBUSER}        
+        DBPASSWORD: ${DBPASSWORD} 
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && daphne -b 0.0.0.0 -p 8000 backend.asgi:application"
     depends_on:
-      database:
-        condition: service_healthy
+      - postgres
     networks:
-      - portfolio-network
-    restart: unless-stopped
+      - transcendance
 
-  database:
-    image: postgres:15-alpine
-    ports:
-      - "5432:5432"
+  postgres:
+    image: postgres:latest
+    container_name: postgres
     environment:
-      - POSTGRES_DB=portfolio_db
-      - POSTGRES_USER=portfolio
-      - POSTGRES_PASSWORD=password
+      POSTGRES_DB: ${DBNAME}       
+      POSTGRES_USER: ${DBUSER}        
+      POSTGRES_PASSWORD: ${DBPASSWORD}  
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - portfolio-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U portfolio -d portfolio_db"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
+      - transcendance
+    
+  redis:
+    image: redis:alpine
+    ports:
+      - "7777:6379"
+    networks:
+      - transcendance
 
 volumes:
+  frontend:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '${VOLUME_PATH}'
   postgres_data:
-
-networks:
-  portfolio-network:
-    driver: bridge
+    driver: local
+  backend:
+    driver: local
