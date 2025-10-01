@@ -102,7 +102,7 @@ Welcome to your curated list of **60 must-know Linux commands** for all Linux us
 
 ---
 
-## Package Management
+## Package Managementsu
 
 | Command | Description | Example |
 |---------|-------------|---------|
@@ -128,7 +128,7 @@ Welcome to your curated list of **60 must-know Linux commands** for all Linux us
 | useradd | Create and adds a new user to the system. | `sudo useradd newuser` |
 | usermod | Modify the USER account details. | `sudo usermod --options USER` |
 | groups | Display the groups where the USER is. | `groups USER` |
-
+| userdel | Delete the wanted user and can force the partition delete | `userdel -r USER` |
 | su      | Switches the current user to another user. | `su username` |
 | passwd  | Changes the password for a user. | `passwd username` |
 | chown   | Changes the owner of a file. | `chown user file.txt` |
