@@ -15,9 +15,9 @@ sudo apt update && sudo apt upgrade -y
 ```sh
 sudo apt install -y \
 	ssh git ufw zsh bat cron \
-	curl wget htop neofetch \
+	curl wget htop \
 	ripgrep fzf tree unzip \
-	build-essential python3 python3-pip \
+	python3 python3-pip \
 	docker.io docker-compose \
 	kubectl awscli nodejs npm
 ```
